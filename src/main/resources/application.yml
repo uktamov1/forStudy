@@ -1,0 +1,88 @@
+server:
+  port: 8888
+  shutdown: graceful
+  max-http-header-size: 20000
+spring:
+  datasource:
+    username: study
+    password: study_password
+    url:  jdbc:postgresql://localhost:54321/study
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+#spring:
+#  config:
+#    import:
+#  servlet:
+#    multipart:
+#      max-file-size: 30MB
+#      max-request-size: 10MB
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri:
+#  application:
+#    name: for-study
+#  cloud:
+#    consul:
+#      discovery:
+#        register-health-check: true
+#        healthCheckPath: /management/health
+#        instanceId: ${SPRING_APPLICATION_NAME}
+#        service-name: ${SPRING_APPLICATION_NAME}
+#application:
+#  oauth2:
+#    issuer-uri: ${KEYCLOAK_AUTH_SERVER_URL}/realms/${KEYCLOAK_REALM}
+#    allowed-audience:
+#      - account
+
+study-db:
+  jdbcUrl: jdbc:postgresql://localhost:54321/study_db
+  datasource:
+    username: study
+    password: study_password
+
+
+ratingm-db:
+  jdbcUrl: jdbc:postgresql://localhost:54321/rating_db
+  datasource:
+    username: burhon
+    password: burhon
+    hibernate:
+      hbm2ddl.auto: create
+
+
+#management:
+#  endpoints:
+#    web:
+#      base-path: /management
+#      exposure:
+#        include: [ 'configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'prometheus', 'threaddump' ]
+#  endpoint:
+#    health:
+#      show-details: when_authorized
+#      roles: 'ROLE_ADMIN'
+
+#keycloak:
+#  realm: ${KEYCLOAK_REALM}
+#  auth-server-url: ${KEYCLOAK_AUTH_SERVER_URL}
+#  ssl-required: external
+#  resource: ${KEYCLOAK_RESOURCE}
+#  credentials:
+#    secret: ${KEYCLOAK_AUTH_CLIENT_SECRET}
+#  use-resource-role-mappings: true
+#  bearer-only: true
+#
+#logging:
+#  level:
+#    uz.anorbank.mobileclientdata: DEBUG
+
+# LOGSTASH - for production, don't use in local run
+# CONSOLE - for locale run
+logback:
+  #  destination: ${LOGBACK_DESTINATION_HOST}:${LOGBACK_DESTINATION_PORT}
+  destination: localhost:8500
+  type: CONSOLE
+#  type: ${LOGBACK_TYPE}
+

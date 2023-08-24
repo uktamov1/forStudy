@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  study-db:
+    image: postgres:latest
+    container_name: study-db
+    environment:
+      POSTGRES_USER: study
+      POSTGRES_PASSWORD: study_password
+      POSTGRES_DATABASE: study
+    volumes:
+      - "./study-db:/var/lib/postgresql/data:rw"
+    ports:
+      - "54321:5432"
+  rating-db:
+    image: postgres:latest
+    container_name: rating-ms
+    environment:
+      POSTGRES_USER: buruhon
+      POSTGRES_PASSWORD: burhon
+      POSTGRES_DATABASE: rating-db
+    volumes:
+      - "./rating-ms:/var/lib/postgresql/data:rw"
+    ports:
+      - "54322:5432"
